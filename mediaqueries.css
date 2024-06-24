@@ -8,9 +8,6 @@
     flex-wrap: wrap;
   }
 
-  #about .details-container {
-    border: rgb(163, 163, 163) 0.1rem solid;
-  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -183,4 +180,24 @@
         justify-content: center;
     }
 
+}
+
+@media screen and (max-height: 900px) and (min-width: 1200px) {
+
+    #about .sub-title, .about-details {
+      width: 50%;
+    }
+
+    section {
+      height: 100vh;
+    }
+
+    #projects .page-top {
+      margin-bottom: 2rem;
+      
+    }
+
+    #about {
+      margin-bottom: 15rem;
+    }
 }
