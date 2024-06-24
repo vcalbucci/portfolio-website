@@ -11,7 +11,7 @@
 
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1500px) {
   #desktop-nav {
     display: none;
   }
@@ -52,7 +52,7 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1500px) {
     #contact, footer {
         height: 40vh;
     }
@@ -143,10 +143,12 @@
         width: 100%;
         text-align: center;
         justify-content: center;
+        margin: 0rem;
     }
 
     #about .section-container {
         justify-content: center;
+        margin: 0rem;
     }
 
     .text-container {
@@ -161,7 +163,7 @@
         text-align: center;
         justify-content: center;
         align-items: center;
-        border: none;
+        
 
     }
 
