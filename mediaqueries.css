@@ -180,6 +180,10 @@
         justify-content: center;
     }
 
+    .hamburger-nav {
+      margin-bottom: 10rem; 
+    }
+
 }
 
 @media screen and (max-height: 900px) and (min-width: 1200px) {

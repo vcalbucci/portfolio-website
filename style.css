@@ -37,6 +37,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 15vh;
+  transition: all 0.3s ease;
 }
 
 .nav-links {
@@ -68,6 +69,7 @@ a:hover {
 
 #hamburger-nav {
   display: none;
+  margin-bottom: 10rem;
 }
 
 .hamburger-menu {
