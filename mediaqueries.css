@@ -2,7 +2,7 @@
   #profile {
     height: 83vh;
     margin-bottom: 6rem;
-    margin-top: 10rem;
+    margin-top: 6rem;
   }
 
   .about-containers {
@@ -183,8 +183,12 @@
         justify-content: center;
     }
 
-    .hamburger-nav {
-      margin-bottom: 10rem; 
+    #hamburger-nav {
+      margin-bottom: 5rem; 
+    }
+
+    .menu-links a {
+      font-size: 1.15rem;
     }
 
 }
