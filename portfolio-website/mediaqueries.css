@@ -1,0 +1,186 @@
+@media screen and (max-width: 1200px) {
+  #profile {
+    height: 83vh;
+    margin-bottom: 6rem;
+  }
+
+  .about-containers {
+    flex-wrap: wrap;
+  }
+
+  #about .details-container {
+    border: rgb(163, 163, 163) 0.1rem solid;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+
+  #hamburger-nav {
+    display: flex;
+  }
+
+  #experience,
+  .experience-details-container {
+    margin-top: 2rem;
+  }
+
+  #profile, .section-container {
+    display: block;
+  }
+
+  .arrow{
+    display: none;
+  }
+
+  section, .section-container {
+    height: fit-content;
+  }
+
+  section {
+    margin: 0 5%;
+  }
+
+  .section-pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+
+  .about-containers {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+    #contact, footer {
+        height: 40vh;
+    }
+    #profile {
+        height: 83vh;
+        margin-bottom: 0;
+    }
+    article {
+        font-size: 1rem;
+    }
+    footer nav {
+        height: fit-content;
+        margin-bottom: 2rem;
+    }
+
+    .about-containers, .contact-info-top, .btn-container {
+        flex-wrap: wrap;
+    }
+
+    .contact-info-container {
+        margin: 1;
+
+    }
+
+    #contact a {
+        font-size: 1.2rem;
+    }
+
+    .contact-info-container, .nav-links li a {
+        font-size: 1rem;
+    }
+
+    .nametag {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .details-container {
+        border-color: rgb(163, 163, 163);
+    }
+
+    .section-pic-container {
+        width: auto;
+        height: 46vw;
+        justify-content: center;
+    }
+
+    .section-text-p2 {
+        font-size: 1.25rem;
+    }
+
+    title, .page-top {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+
+    .text-container {
+        text-align: justify;
+    }
+
+    .sub-title {
+        font-size: 1.25rem;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+    #about .details-container {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 0.4rem;
+        border-color: rgb(163, 163, 163) 0.1rem solid;
+        border-radius: 1rem;
+        
+    }
+
+    #about .article-container{
+        margin: 1rem;
+    }
+
+    .about-details {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    #about .section-container {
+        justify-content: center;
+    }
+
+    .text-container {
+        text-align: center;
+        margin-left: none;
+        justify-content: center;
+        width: 80%;
+        padding-bottom: 4rem;
+    }
+
+    #about .experience-details-container {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        border: none;
+
+    }
+
+    #projects .section-container {
+        justify-content: center;
+        padding-bottom: 4rem;
+    }
+
+    #about .section-pic-container {
+        width: auto;
+        height: 46vw;
+        justify-content: center;
+    }
+
+    .sub-title {
+        width: 100%;
+        justify-content: center;
+    }
+
+}
