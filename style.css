@@ -149,7 +149,7 @@ section {
   height: 96vh;
   margin: 0 10rem;
   box-sizing: border-box;
-  min-height: fit-content;
+  height: fit-content;
 }
 
 .section-container {
@@ -335,8 +335,8 @@ section {
   
 }
 
-.details-container {
-
+#about  {
+  padding-bottom: 10vh;
 }
 
 .section-container {
@@ -366,7 +366,7 @@ section {
 
 .experience-details-container {
   display: flex;
-  justify-content: center;
+  
   flex-direction: column;
   border: rgb(55, 55, 55) 0.1rem solid;
   border-color: rgb(163, 163, 163);
@@ -424,6 +424,10 @@ article .icon {
 #projects .section-container {
   justify-content: center;
   padding-bottom: 4rem;
+}
+
+#projects section {
+  
 }
 
 #projects .experience-details-container {
