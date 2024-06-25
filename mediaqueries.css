@@ -203,7 +203,7 @@
 @media screen and (max-width: 535px) and (min-width: 376px) {
   
 
-  .about-containers {
+  #about .about-containers {
     width: 62vw;
     padding-left: 13vw;
     
