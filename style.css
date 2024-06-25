@@ -292,7 +292,7 @@ section {
 }
 
 #about .article-container {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .skills-icon {
@@ -309,10 +309,8 @@ section {
 }
 
 #about .section-pic-container {
-    height: 300px;
-    width: 300px;
-
-    
+  height: 300px;
+  width: 300px;
 }
 
 .arrow {
@@ -323,7 +321,7 @@ section {
 
 #about .about-details .details-container {
   padding: 1rem;
- 
+
   flex: 1;
   background: white;
   border: rgb(55, 55, 55) 0.1rem solid;
@@ -332,10 +330,19 @@ section {
   border-radius: 1rem;
   margin: 1rem;
   margin-bottom: 2rem;
-  
 }
 
-#about  {
+#about .details-container {
+  border: rgb(55, 55, 55) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  border-radius: 1rem;
+}
+
+#about .experience-details-container {
+  border: none;
+}
+
+#about {
   padding-bottom: 10vh;
 }
 
@@ -366,7 +373,7 @@ section {
 
 .experience-details-container {
   display: flex;
-  
+
   flex-direction: column;
   border: rgb(55, 55, 55) 0.1rem solid;
   border-color: rgb(163, 163, 163);
@@ -383,7 +390,6 @@ section {
   flex-wrap: wrap;
   flex-direction: row;
   gap: 0.5rem;
-  margin: 0.5rem;
   justify-content: flex-start;
   align-items: center;
   font-size: 1rem;
@@ -427,7 +433,6 @@ article .icon {
 }
 
 #projects section {
-  
 }
 
 #projects .experience-details-container {
@@ -437,7 +442,7 @@ article .icon {
 }
 
 .project-container {
-  border:rgb(85, 85, 85) .1rem solid;
+  border: rgb(85, 85, 85) 0.1rem solid;
   border-radius: 1rem;
   margin: 1rem;
 }
@@ -454,7 +459,8 @@ article .icon {
   justify-content: center;
 }
 
-#projects ,.article-container {
+#projects,
+.article-container {
   justify-content: center;
 }
 
@@ -471,7 +477,6 @@ article .icon {
 #projects .btn-container {
   padding-bottom: 3rem;
 }
-
 
 /* CONTACT */
 
@@ -503,7 +508,6 @@ article .icon {
   justify-content: center;
   gap: 0.5rem;
   margin: 1rem;
-
 }
 
 .contact-info-container p {

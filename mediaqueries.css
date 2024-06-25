@@ -146,7 +146,7 @@
   }
 
   #about .article-container {
-    margin: 1rem;
+    margin: 0rem;
   }
 
   .about-details {
@@ -197,5 +197,29 @@
 
   .menu-links a {
     font-size: 1.15rem;
+  }
+}
+
+@media screen and (max-width: 535px) and (min-width: 376px) {
+  
+
+  .about-containers {
+    width: 62vw;
+    padding-left: 13vw;
+    
+  }
+
+  .about-details {
+    text-align: center;
+    align-items: center;
+  }
+
+  
+
+}
+
+@media screen and (max-width: 535px) {
+  .skills-container {
+    align-items: center;
   }
 }
