@@ -315,8 +315,12 @@ section {
 
 .arrow {
   position: absolute;
-  right: -5rem;
-  bottom: 2.5rem;
+  right: 0;
+  bottom: 8rem;
+}
+
+#about .arrow {
+  bottom: 11rem;
 }
 
 #about .about-details .details-container {
@@ -336,10 +340,21 @@ section {
   border: rgb(55, 55, 55) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   border-radius: 1rem;
+  max-width: 400px;
 }
 
 #about .experience-details-container {
   border: none;
+}
+
+#about .details-container.desc {
+  margin: 0rem;
+  max-width: 700px;
+}
+
+#about .details-container.skill {
+  margin: 0rem;
+  max-width: 700px;
 }
 
 #about {
@@ -443,8 +458,9 @@ article .icon {
 
 .project-container {
   border: rgb(85, 85, 85) 0.1rem solid;
-  border-radius: 1rem;
+  border-radius: 2rem;
   margin: 1rem;
+  width: 45%;
 }
 
 .color-container {
@@ -458,6 +474,7 @@ article .icon {
   height: 90%;
   justify-content: center;
   margin-top: 2rem;
+  max-height: 600px;
 }
 
 #projects,

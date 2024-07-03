@@ -10,7 +10,7 @@
   }
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 2500px) {
   #desktop-nav {
     display: none;
   }
@@ -29,9 +29,7 @@
     display: block;
   }
 
-  .arrow {
-    display: none;
-  }
+ 
 
   section,
   .section-container {
@@ -43,8 +41,8 @@
   }
 
   .section-pic-container {
-    width: 275px;
-    height: 275px;
+    width: 270px;
+    height: 270px;
     margin: 0 auto 2rem;
   }
 
@@ -55,7 +53,7 @@
   }
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 2500px) {
   #contact,
   footer {
     height: 40vh;
@@ -106,8 +104,8 @@
   }
 
   .section-pic-container {
-    width: auto;
-    height: 46vw;
+    width: 270px;
+    height: 270px;
     justify-content: center;
   }
 
@@ -181,8 +179,8 @@
   }
 
   #about .section-pic-container {
-    width: auto;
-    height: 46vw;
+    width: 270px;
+    height: 270px;
     justify-content: center;
   }
 
@@ -222,4 +220,50 @@
   .skills-container {
     align-items: center;
   }
+
+  
 }
+
+@media screen and (max-width: 1100px) {
+    
+
+    .project-container {
+      width: 45%;
+      margin-bottom: 1rem;
+      height: 50vh;
+      display: flex;
+    }
+
+    .project-img {
+      margin-top: 0;
+      width: 200px;
+      margin-left: 10px;
+    }
+
+    .proj-cont {
+     justify-content: center;
+     align-items: center;
+    }
+}
+
+@media screen and (max-width: 950px) {
+  .project-container {
+    width: 300px;
+    margin-bottom: 1rem;
+    height: fit-content;
+    display: block;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .project-img {
+    margin-top: 1rem;
+    
+    margin-left: 0;
+    width: 90%;
+  }
+
+
+} 
