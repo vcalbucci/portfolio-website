@@ -7,7 +7,6 @@ const sections = [
 ];
 
 const NavBar: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
@@ -73,7 +72,6 @@ const NavBar: React.FC = () => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, section: string) => {
     e.preventDefault();
-    setMenuOpen(false);
     
     setActiveSection(section);
     setClickedSection(section);
@@ -119,18 +117,6 @@ const NavBar: React.FC = () => {
               style={indicatorStyle}
             />
           )}
-        </div>
-      </nav>
-      <nav id="hamburger-nav" className={`rounded-navbar${scrolled ? '' : ' transparent-navbar'}`}>
-        <div className="hamburger-menu">
-          <div className="hamburger-icon" onClick={() => setMenuOpen(!menuOpen)}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div className={`menu-links${menuOpen ? ' open' : ''}`}> 
-            <NavLinks />
-          </div>
         </div>
       </nav>
     </div>

@@ -335,6 +335,62 @@ section:not(#profile) {
     margin: 2rem 0.5rem; 
     padding: 1.5rem 0.5rem; 
   }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 776px) {
+  #about .title {
+    margin-bottom: 4rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  section { 
+    margin: 1rem 0.25rem; 
+    padding: 1rem 0.5rem; 
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  #about .title {
+    margin-bottom: 4rem !important;
+  }
+  
+  .section-text-p1 {
+    font-size: 1rem;
+  }
+  
+  .section-text-p2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  section { 
+    margin: 0.5rem 0.25rem; 
+    padding: 0.75rem 0.5rem; 
+  }
+  
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  #about .title {
+    margin-bottom: 4rem !important;
+  }
+  
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+  }
 }
 
 .footer {

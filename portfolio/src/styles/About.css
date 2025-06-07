@@ -47,6 +47,8 @@
 .details-container.skill {
   border-radius: 1rem;
   padding: 1rem;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .article-container {
@@ -189,9 +191,14 @@ article {
   margin-bottom: 0.3rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .details-container.skill {
+    max-width: 100%;
+    width: 100%;
   }
   
   .focus-areas-container {
@@ -200,6 +207,69 @@ article {
   
   .focus-pill {
     padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .about-containers {
+    gap: 1rem;
+  }
+  
+  .details-container {
+    min-width: 200px;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .details-container.skill {
+    max-width: 100%;
+    width: 100%;
+    padding: 0.75rem;
+  }
+  
+  .focus-areas-container {
+    gap: 0.5rem;
+  }
+  
+  .focus-pill {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .details-container {
+    min-width: 150px;
+    padding: 1rem;
+  }
+  
+  .skill-category-title {
+    font-size: 1rem;
+  }
+  
+  .skill-item h4 {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .details-container.skill {
+    padding: 0.5rem;
+  }
+  
+  .focus-pill {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .details-container {
+    padding: 0.75rem;
+  }
+  
+  .skill-category-title {
     font-size: 0.9rem;
   }
 } 

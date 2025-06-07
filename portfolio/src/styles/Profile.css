@@ -111,10 +111,28 @@
   height: 2.5rem;
   transition: transform 0.2s ease, filter 0.2s ease;
   cursor: pointer;
-  filter: invert(100%) sepia(14%) saturate(2198%) hue-rotate(343deg) brightness(106%) contrast(106%);
+  filter: invert(13%) sepia(18%) saturate(1037%) hue-rotate(201deg) brightness(95%) contrast(101%);
 }
 
 .social-icon:hover {
+  filter: invert(13%) sepia(18%) saturate(1037%) hue-rotate(201deg) brightness(85%) contrast(101%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-mode) .social-icon {
+    filter: invert(100%) sepia(14%) saturate(2198%) hue-rotate(343deg) brightness(106%) contrast(106%);
+  }
+  
+  :root:not(.light-mode) .social-icon:hover {
+    filter: invert(100%) sepia(14%) saturate(2198%) hue-rotate(343deg) brightness(115%) contrast(115%);
+  }
+}
+
+.dark-mode .social-icon {
+  filter: invert(100%) sepia(14%) saturate(2198%) hue-rotate(343deg) brightness(106%) contrast(106%);
+}
+
+.dark-mode .social-icon:hover {
   filter: invert(100%) sepia(14%) saturate(2198%) hue-rotate(343deg) brightness(115%) contrast(115%);
 }
 
@@ -136,13 +154,28 @@
   height: 2.2rem;
   cursor: pointer;
   transition: filter 0.2s;
-}
-
-.icon {
-  filter: invert(100%) sepia(14%) saturate(2198%) hue-rotate(343deg) brightness(106%) contrast(106%);
+  filter: invert(13%) sepia(18%) saturate(1037%) hue-rotate(201deg) brightness(95%) contrast(101%);
 }
 
 .icon:hover {
+  filter: invert(13%) sepia(18%) saturate(1037%) hue-rotate(201deg) brightness(85%) contrast(101%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-mode) .icon {
+    filter: invert(100%) sepia(14%) saturate(2198%) hue-rotate(343deg) brightness(106%) contrast(106%);
+  }
+  
+  :root:not(.light-mode) .icon:hover {
+    filter: invert(100%) sepia(14%) saturate(2198%) hue-rotate(343deg) brightness(115%) contrast(115%);
+  }
+}
+
+.dark-mode .icon {
+  filter: invert(100%) sepia(14%) saturate(2198%) hue-rotate(343deg) brightness(106%) contrast(106%);
+}
+
+.dark-mode .icon:hover {
   filter: invert(100%) sepia(14%) saturate(2198%) hue-rotate(343deg) brightness(115%) contrast(115%);
 }
 
@@ -165,4 +198,100 @@
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .profile-content {
+    max-width: 90%;
+  }
+  
+  .title {
+    font-size: 2.5rem !important;
+    min-height: 3rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .section-text-p1 {
+    font-size: 1rem !important;
+  }
+  
+  .section-text-p2 {
+    font-size: 1.2rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .btn {
+    font-size: 1rem !important;
+    padding: 0.8rem 2rem !important;
+  }
+  
+  .social-icon, .icon {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  
+  .socials-container {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-section {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem !important;
+    min-height: 2.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .section-text-p1 {
+    font-size: 0.9rem !important;
+  }
+  
+  .section-text-p2 {
+    font-size: 1.1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .btn {
+    font-size: 0.9rem !important;
+    padding: 0.7rem 1.5rem !important;
+  }
+  
+  .social-icon, .icon {
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .title {
+    font-size: 1.8rem !important;
+    min-height: 2rem !important;
+  }
+  
+  .section-text-p1 {
+    font-size: 0.85rem !important;
+  }
+  
+  .section-text-p2 {
+    font-size: 1rem !important;
+  }
+  
+  .btn {
+    font-size: 0.85rem !important;
+    padding: 0.6rem 1.2rem !important;
+  }
+  
+  .profile-content {
+    max-width: 95%;
+  }
 } 

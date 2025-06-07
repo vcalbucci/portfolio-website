@@ -198,7 +198,7 @@
     }
   }
   
-  @media screen and (max-width: 535px) and (min-width: 376px) {
+  @media screen and (max-width: 536px) and (min-width: 376px) {
     
   
     #about .about-containers {
@@ -246,7 +246,7 @@
       }
   }
   
-  @media screen and (max-width: 950px) {
+  @media screen and (max-width: 1000px) {
     .project-container {
       width: 300px;
       margin-bottom: 1rem;

@@ -71,7 +71,8 @@ const Profile: React.FC = () => {
               fontSize: '3.5rem',
               minHeight: '4rem',
               fontWeight: '700',
-              animationDelay: '0.5s'
+              animationDelay: '0.5s',
+              marginBottom: '1rem'
             }}
           >
             {displayedText}
@@ -86,10 +87,11 @@ const Profile: React.FC = () => {
               fontSize: '1.5rem',
               color: 'var(--secondary)',
               opacity: 0,
-              animation: typewriterComplete ? 'slideInFromRight 0.8s ease-out 0.3s forwards' : 'none'
+              animation: typewriterComplete ? 'slideInFromRight 0.8s ease-out 0.3s forwards' : 'none',
+              marginBottom: '2rem'
             }}
           >
-            Software Developer
+            Software Engineer
           </p>
           <div 
             className="btn-container"
