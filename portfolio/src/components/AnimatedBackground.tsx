@@ -43,7 +43,6 @@ const AnimatedBackground: React.FC = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', resizeCanvas);
 
     const handleVisibilityChange = () => {
       isPageVisible.current = !document.hidden;
@@ -120,7 +119,7 @@ const AnimatedBackground: React.FC = () => {
         isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
       }
       
-      const waveColor = isDarkMode ? '255, 255, 153' : '74, 78, 105';
+      const waveColor = isDarkMode ? '255, 255, 153' : '55, 62, 85';
 
       for (let i = 0; i < lines; i++) {
         ctx.beginPath();
@@ -184,7 +183,7 @@ const AnimatedBackground: React.FC = () => {
         ctx.stroke();
       }
 
-      const dotColor = isDarkMode ? '255, 255, 153' : '74, 78, 105';
+      const dotColor = isDarkMode ? '255, 255, 153' : '40, 45, 65';
 
       for (let i = 0; i < 15; i++) {
         const dotX = (Math.sin(time * 0.5 + i) * canvas.width * 0.3) + canvas.width * 0.5;
@@ -215,7 +214,6 @@ const AnimatedBackground: React.FC = () => {
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', resizeCanvas);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       observer.disconnect();
       if (animationRef.current) {

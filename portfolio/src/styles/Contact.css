@@ -1,0 +1,70 @@
+#contact {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 1.5rem;
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-info-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--bg);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.contact-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.email-icon {
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+footer {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 1.5rem 1.5rem 0 0;
+  padding: 2rem 0 1rem 0;
+  margin: 2rem auto 0 auto;
+  max-width: 900px;
+  text-align: center;
+}
+
+footer .nav-links {
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+footer .nav-links a {
+  color: var(--secondary);
+  font-size: 1rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+footer .nav-links a:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+footer p {
+  color: var(--primary);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+} 

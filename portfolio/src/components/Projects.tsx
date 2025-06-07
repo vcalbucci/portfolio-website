@@ -31,7 +31,7 @@ const Projects: React.FC = () => {
     checkTheme();
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e: MediaQueryListEvent) => {
+    const handleChange = () => {
       checkTheme();
     };
 

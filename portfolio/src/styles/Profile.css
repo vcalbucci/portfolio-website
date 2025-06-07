@@ -1,0 +1,105 @@
+.profile-container {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.profile-content {
+  max-width: 600px;
+}
+
+.fade-in-element {
+  animation: fadeInUp 1s ease-out;
+}
+
+.cursor {
+  transition: opacity 0.5s ease;
+}
+
+.download-icon {
+  height: 1em;
+  width: 1em;
+  margin-left: 0.5em;
+  vertical-align: middle;
+  filter: invert(1) brightness(2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-mode) .download-icon {
+    filter: invert(0) brightness(1.5);
+  }
+}
+
+.dark-mode .download-icon {
+  filter: invert(0) brightness(1.5);
+}
+
+.social-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.socials-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+#socials-container, .socials-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.icon:hover {
+  filter: brightness(0.3) sepia(1) hue-rotate(220deg) saturate(3);
+}
+
+.section-pic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 2rem auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  width: 160px;
+  height: 160px;
+}
+
+.section-pic-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+} 
