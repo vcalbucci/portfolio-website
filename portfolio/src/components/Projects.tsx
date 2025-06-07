@@ -59,28 +59,6 @@ const Projects: React.FC = () => {
                 </div>
               </div>
             </div>
-            {/*
-            <div className="project-container color-container">
-              <div className="article-container">
-                <img
-                  src="/assets/assets/"
-                  alt="Project 1 Image"
-                  className="project-img"
-                />
-              </div>
-              <h2 className="experience-sub-title project-title">
-                Project Three (Coming Soon)
-              </h2>
-              <div className="btn-container">
-                <button
-                  className="btn btn-color-2 project-btn"
-                  onClick={() => window.location.href='https://github.com/vabucci'}
-                >
-                  GitHub Repo
-                </button>
-              </div>
-            </div>
-            */}
           </div>
         </div>
       </div>

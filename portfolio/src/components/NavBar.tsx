@@ -39,7 +39,6 @@ const NavBar: React.FC = () => {
       const scrollY = window.scrollY;
       let current = 'home';
       
-      // More efficient loop that can break early
       for (const section of sections) {
         if (section.id !== 'home') {
           const el = document.getElementById(section.id);
@@ -74,7 +73,6 @@ const NavBar: React.FC = () => {
     }
   };
 
-  // Common navigation links component
   const NavLinks = () => (
     <>
       {sections.map((section) => (
@@ -93,7 +91,6 @@ const NavBar: React.FC = () => {
 
   return (
     <div className="navbar-container">
-      {/* Desktop Nav */}
       <nav id="desktop-nav" className={`rounded-navbar${scrolled ? '' : ' transparent-navbar'}`}>
         <div style={{ position: 'relative' }}>
           <ul className="nav-links" ref={navRef}>

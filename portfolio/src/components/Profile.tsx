@@ -3,7 +3,7 @@ import linkedinImg from '../assets/linkedin.png';
 import githubImg from '../assets/github.png';
 import resumePdf from '../assets/Victor-Calbucci-Resume.pdf';
 import downloadIcon from '../assets/download.png';
-import TopographicalBackground from './TopographicalBackground';
+import AnimatedBackground from './AnimatedBackground';
 
 const Profile: React.FC = () => {
   const [displayedText, setDisplayedText] = useState('');
@@ -53,7 +53,7 @@ const Profile: React.FC = () => {
 
   return (
     <div className="profile-container">
-      <TopographicalBackground />
+      <AnimatedBackground />
       <section id="profile" className="profile-section">
         <div className="section-text profile-content">
           <p 

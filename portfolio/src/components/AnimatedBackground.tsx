@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-const TopographicalBackground: React.FC = () => {
+const AnimatedBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mousePos = useRef({ x: 0, y: 0 });
   const animationRef = useRef<number | undefined>(undefined);
@@ -31,7 +31,6 @@ const TopographicalBackground: React.FC = () => {
           y: e.clientY - rect.top
         };
         
-        // Ensure coordinates are within canvas bounds
         mousePos.current.x = Math.max(0, Math.min(canvas.width, mousePos.current.x));
         mousePos.current.y = Math.max(0, Math.min(canvas.height, mousePos.current.y));
       }
@@ -171,4 +170,4 @@ const TopographicalBackground: React.FC = () => {
   );
 };
 
-export default TopographicalBackground; 
+export default AnimatedBackground; 
