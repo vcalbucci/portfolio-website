@@ -4,6 +4,8 @@ const AnimatedBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mousePos = useRef({ x: 0, y: 0 });
   const animationRef = useRef<number | undefined>(undefined);
+  const isVisible = useRef(true);
+  const isPageVisible = useRef(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -41,6 +43,37 @@ const AnimatedBackground: React.FC = () => {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', resizeCanvas);
 
+    const handleVisibilityChange = () => {
+      isPageVisible.current = !document.hidden;
+      if (!isPageVisible.current && animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = undefined;
+      } else if (isPageVisible.current && isVisible.current && !animationRef.current) {
+        drawTopographicalLines();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisible.current = entry.isIntersecting;
+          if (!entry.isIntersecting && animationRef.current) {
+            cancelAnimationFrame(animationRef.current);
+            animationRef.current = undefined;
+          } else if (entry.isIntersecting && isPageVisible.current && !animationRef.current) {
+            drawTopographicalLines();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (canvas) {
+      observer.observe(canvas);
+    }
+
     const drawTopographicalLines = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
@@ -53,22 +86,17 @@ const AnimatedBackground: React.FC = () => {
         ctx.strokeStyle = `rgba(74, 78, 105, ${0.1 + (i / lines) * 0.2})`;
         ctx.lineWidth = 1 + (i / lines) * 1.5;
 
-        // Store line points for smoother mouse influence
         const linePoints: number[] = [];
-        
-        // First pass: calculate base points
         for (let x = 0; x <= canvas.width; x += 8) {
           let y = canvas.height * 0.5 + 
                   Math.sin(x * 0.005 + time + i * 0.3) * (spacing * 1.0) +
                   Math.sin(x * 0.002 + time * 1.5 + i * 0.2) * (spacing * 0.5);
           
-          // Add subtle noise
           y += Math.sin(x * 0.01 + time * 2 + i) * 12;
           
           linePoints.push(y);
         }
         
-        // Second pass: apply mouse influence with smooth spreading
         const maxInfluence = 200;
         for (let pointIndex = 0; pointIndex < linePoints.length; pointIndex++) {
           const x = pointIndex * 8;
@@ -86,10 +114,7 @@ const AnimatedBackground: React.FC = () => {
             const angle = Math.atan2(y - mousePos.current.y, x - mousePos.current.x);
             const displacement = Math.sin(angle) * pushStrength * 0.3 + Math.cos(angle * 0.5) * pushStrength * 0.7;
             
-            // Apply displacement to current point and neighbors for rounded effect
             linePoints[pointIndex] += displacement;
-            
-            // Spread influence to neighboring points
             const spreadRange = 3;
             for (let spread = 1; spread <= spreadRange; spread++) {
               const spreadInfluence = (1 - spread / spreadRange) * 0.4;
@@ -104,7 +129,6 @@ const AnimatedBackground: React.FC = () => {
           }
         }
         
-        // Third pass: draw the smoothed line
         for (let pointIndex = 0; pointIndex < linePoints.length; pointIndex++) {
           const x = pointIndex * 8;
           const y = linePoints[pointIndex];
@@ -119,7 +143,6 @@ const AnimatedBackground: React.FC = () => {
         ctx.stroke();
       }
 
-      // Add some floating dots for extra detail
       for (let i = 0; i < 15; i++) {
         const dotX = (Math.sin(time * 0.5 + i) * canvas.width * 0.3) + canvas.width * 0.5;
         const dotY = (Math.cos(time * 0.3 + i * 1.5) * canvas.height * 0.2) + canvas.height * 0.5;
@@ -139,7 +162,9 @@ const AnimatedBackground: React.FC = () => {
         ctx.fill();
       }
 
-      animationRef.current = requestAnimationFrame(drawTopographicalLines);
+      if (isVisible.current && isPageVisible.current) {
+        animationRef.current = requestAnimationFrame(drawTopographicalLines);
+      }
     };
 
     drawTopographicalLines();
@@ -148,6 +173,8 @@ const AnimatedBackground: React.FC = () => {
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', resizeCanvas);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      observer.disconnect();
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }

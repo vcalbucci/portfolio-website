@@ -650,7 +650,6 @@ footer p {
   font-weight: 500;
   font-size: 0.95rem;
   text-align: center;
-  cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
 }
