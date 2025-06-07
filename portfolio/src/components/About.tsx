@@ -43,7 +43,6 @@ const focusAreas = [
 const About: React.FC = () => {
   return (
     <section id="about">
-      <h1 className="section-text-p1">Get to Know Me</h1>
       <h1 className="title page-top">About Me</h1>
       
       {/* Personal Introduction */}
