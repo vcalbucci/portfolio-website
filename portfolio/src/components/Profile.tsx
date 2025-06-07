@@ -21,7 +21,6 @@ const Profile: React.FC = () => {
         setTypewriterComplete(true);
         clearInterval(timer);
         
-        // Blink cursor a few times then hide it
         setTimeout(() => {
           setShowCursor(false);
         }, 2000);
@@ -31,7 +30,6 @@ const Profile: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Shared hover handlers for interactive elements
   const handleMouseEnter = (e: React.MouseEvent<HTMLElement>, scale: string) => {
     (e.currentTarget as HTMLElement).style.transform = `scale(${scale})`;
   };

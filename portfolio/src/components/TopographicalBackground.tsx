@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const TopographicalBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mousePos = useRef({ x: 0, y: 0 });
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -40,7 +40,7 @@ const TopographicalBackground: React.FC = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', resizeCanvas); // Recalculate on scroll
+    window.addEventListener('scroll', resizeCanvas);
 
     const drawTopographicalLines = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
