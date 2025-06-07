@@ -23,26 +23,17 @@
 }
 
 #about .details-container.desc.glassmorphism-card::before {
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(0, 0, 0, 0.2), 
-    transparent);
+  display: none;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light-mode) #about .details-container.desc.glassmorphism-card::before {
-    background: linear-gradient(90deg, 
-      transparent, 
-      rgba(148, 163, 184, 0.4), 
-      transparent);
+    display: none;
   }
 }
 
 .dark-mode #about .details-container.desc.glassmorphism-card::before {
-  background: linear-gradient(90deg, 
-    transparent, 
-    rgba(148, 163, 184, 0.4), 
-    transparent);
+  display: none;
 }
 
 .skills-container {
@@ -94,7 +85,7 @@ article {
 }
 
 .focus-areas-section {
-  margin: 2.5rem 0;
+  margin: 2.5rem 0 4.5rem 0;
 }
 
 .focus-areas-container {

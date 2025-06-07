@@ -11,11 +11,13 @@ const NavBar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+  const [clickedSection, setClickedSection] = useState<string | null>(null);
   const navRef = useRef<HTMLUListElement>(null);
 
-  const updateIndicatorPosition = useCallback(() => {
+  const updateIndicatorPosition = useCallback((targetSection?: string) => {
     if (navRef.current && scrolled) {
-      const activeIndex = sections.findIndex(section => section.id === activeSection);
+      const sectionToUse = targetSection || activeSection;
+      const activeIndex = sections.findIndex(section => section.id === sectionToUse);
       const activeLink = navRef.current.children[activeIndex]?.querySelector('a') as HTMLElement;
       
       if (activeLink) {
@@ -28,6 +30,10 @@ const NavBar: React.FC = () => {
       }
     }
   }, [scrolled, activeSection]);
+
+  const handleResize = useCallback(() => {
+    updateIndicatorPosition();
+  }, [updateIndicatorPosition]);
 
   useEffect(() => {
     updateIndicatorPosition();
@@ -47,21 +53,33 @@ const NavBar: React.FC = () => {
         }
       }
       
-      setActiveSection(current);
+      if (!clickedSection || current === clickedSection) {
+        setActiveSection(current);
+        if (clickedSection) {
+          setClickedSection(null);
+        }
+      }
+      
       setScrolled(scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', updateIndicatorPosition);
+    window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', updateIndicatorPosition);
+      window.removeEventListener('resize', handleResize);
     };
-  }, [updateIndicatorPosition]);
+  }, [handleResize, clickedSection]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, section: string) => {
     e.preventDefault();
     setMenuOpen(false);
+    
+    setActiveSection(section);
+    setClickedSection(section);
+    
+    updateIndicatorPosition(section);
+    
     if (section === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
@@ -78,7 +96,7 @@ const NavBar: React.FC = () => {
         <li key={section.id}>
           <a
             href={section.href}
-            className={scrolled && activeSection === section.id ? 'active' : ''}
+            className={scrolled && (clickedSection || activeSection) === section.id ? 'active' : ''}
             onClick={e => handleNavClick(e, section.id)}
           >
             {section.label}

@@ -14,6 +14,9 @@ function App() {
       <About />
       <Projects />
       <ThemeToggle />
+      <footer className="footer">
+        <p>&copy; {new Date().getFullYear()} Victor Calbucci. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
