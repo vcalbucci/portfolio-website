@@ -45,7 +45,6 @@ const About: React.FC = () => {
     <section id="about">
       <h1 className="title page-top">About Me</h1>
       
-      {/* Personal Introduction */}
       <div className="about-containers">
         <div className="details-container glassmorphism-card desc">
           <p>
@@ -58,7 +57,6 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Education - Below Description */}
       <div className="education-section">
         <div className="education-text">
           <h3>University of British Columbia</h3>
@@ -67,7 +65,6 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Focus Areas - Pills */}
       <div className="focus-areas-section">
         <h2 className="section-heading">Areas of Interest</h2>
         <div className="focus-areas-container">
@@ -79,7 +76,6 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* Technical Skills - 3 Columns */}
       <div className="skills-section">
         <h2 className="section-heading">Technical Skills</h2>
         <div className="skills-grid">
