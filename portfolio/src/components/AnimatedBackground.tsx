@@ -6,6 +6,8 @@ const AnimatedBackground: React.FC = () => {
   const animationRef = useRef<number | undefined>(undefined);
   const isVisible = useRef(true);
   const isPageVisible = useRef(true);
+  const lastFrameTime = useRef(0);
+  const frameInterval = useRef(16.67);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -74,16 +76,55 @@ const AnimatedBackground: React.FC = () => {
       observer.observe(canvas);
     }
 
-    const drawTopographicalLines = () => {
+    const detectPerformance = () => {
+      let targetFPS = 60;
+      
+      const cores = navigator.hardwareConcurrency || 4;
+      const memory = (navigator as any).deviceMemory || 4;
+      
+      if (cores <= 2 || memory <= 2) {
+        targetFPS = 30;
+      } else if (cores <= 4 || memory <= 4) {
+        targetFPS = 45;
+      } else {
+        targetFPS = 60;
+      }
+      
+      frameInterval.current = 1000 / targetFPS;
+    };
+
+    detectPerformance();
+
+    const drawTopographicalLines = (currentTime = 0) => {
+      if (currentTime - lastFrameTime.current < frameInterval.current) {
+        if (isVisible.current && isPageVisible.current) {
+          animationRef.current = requestAnimationFrame(drawTopographicalLines);
+        }
+        return;
+      }
+      
+      lastFrameTime.current = currentTime;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       const time = Date.now() * 0.001;
       const lines = 12;
       const spacing = Math.min(canvas.width, canvas.height) / lines;
 
+      const rootElement = document.documentElement;
+      const hasManualTheme = rootElement.classList.contains('light-mode') || rootElement.classList.contains('dark-mode');
+      let isDarkMode;
+      
+      if (hasManualTheme) {
+        isDarkMode = rootElement.classList.contains('dark-mode');
+      } else {
+        isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+      
+      const waveColor = isDarkMode ? '255, 255, 153' : '74, 78, 105';
+
       for (let i = 0; i < lines; i++) {
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(74, 78, 105, ${0.1 + (i / lines) * 0.2})`;
+        ctx.strokeStyle = `rgba(${waveColor}, ${0.1 + (i / lines) * 0.15})`;
         ctx.lineWidth = 1 + (i / lines) * 1.5;
 
         const linePoints: number[] = [];
@@ -143,6 +184,8 @@ const AnimatedBackground: React.FC = () => {
         ctx.stroke();
       }
 
+      const dotColor = isDarkMode ? '255, 255, 153' : '74, 78, 105';
+
       for (let i = 0; i < 15; i++) {
         const dotX = (Math.sin(time * 0.5 + i) * canvas.width * 0.3) + canvas.width * 0.5;
         const dotY = (Math.cos(time * 0.3 + i * 1.5) * canvas.height * 0.2) + canvas.height * 0.5;
@@ -157,7 +200,7 @@ const AnimatedBackground: React.FC = () => {
         }
         
         ctx.beginPath();
-        ctx.fillStyle = `rgba(154, 140, 152, ${opacity})`;
+        ctx.fillStyle = `rgba(${dotColor}, ${opacity})`;
         ctx.arc(dotX, dotY, 2, 0, Math.PI * 2);
         ctx.fill();
       }

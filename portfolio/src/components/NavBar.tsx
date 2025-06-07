@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 const sections = [
   { id: 'home', label: 'Home', href: '#' },
   { id: 'about', label: 'About', href: '#about' },
-  // { id: 'experience', label: 'Experience', href: '#experience' },
   { id: 'projects', label: 'Projects', href: '#projects' },
 ];
 
@@ -42,7 +41,7 @@ const NavBar: React.FC = () => {
       for (const section of sections) {
         if (section.id !== 'home') {
           const el = document.getElementById(section.id);
-          if (el && el.offsetTop - 80 <= scrollY) {
+          if (el && el.offsetTop - 100 <= scrollY) {
             current = section.id;
           }
         }

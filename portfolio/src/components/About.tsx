@@ -57,11 +57,13 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      <div className="education-section">
-        <div className="education-text">
-          <h3>University of British Columbia</h3>
-          <p>B.Sc. Computer Science, Software Engineering Option</p>
-          <p className="graduation-date">Expected Graduation: Dec 2026</p>
+      <div style={{ textAlign: 'center' }}>
+        <div className="education-section glassmorphism-card">
+          <div className="education-text">
+            <h3>University of British Columbia</h3>
+            <p>B.Sc. Computer Science, Software Engineering Option</p>
+            <p className="graduation-date">Expected Graduation: Dec 2026</p>
+          </div>
         </div>
       </div>
 

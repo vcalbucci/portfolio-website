@@ -1,66 +1,115 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import project1Img from '../assets/Project1.png';
+import project1DarkImg from '../assets/Project1Dark.png';
 import project2Img from '../assets/Project2.png';
 
+interface ProjectData {
+  title: string;
+  image: string;
+  buttons: {
+    text: string;
+    url: string;
+    variant: 'primary' | 'secondary';
+  }[];
+}
+
 const Projects: React.FC = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const rootElement = document.documentElement;
+      const hasManualTheme = rootElement.classList.contains('light-mode') || rootElement.classList.contains('dark-mode');
+      
+      if (hasManualTheme) {
+        setIsDarkMode(rootElement.classList.contains('dark-mode'));
+      } else {
+        setIsDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      }
+    };
+
+    checkTheme();
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e: MediaQueryListEvent) => {
+      checkTheme();
+    };
+
+    const observer = new MutationObserver(() => {
+      checkTheme();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+      observer.disconnect();
+    };
+  }, []);
+
+  const projects: ProjectData[] = [
+    {
+      title: "Personal Website",
+      image: isDarkMode ? project1Img : project1DarkImg,
+      buttons: [
+        {
+          text: "GitHub Repo",
+          url: "https://github.com/vabucci/portfolio-website",
+          variant: "secondary"
+        }
+      ]
+    },
+    {
+      title: "React Todo App",
+      image: project2Img,
+      buttons: [
+        {
+          text: "Website",
+          url: "https://todo-list-498fe.web.app",
+          variant: "secondary"
+        },
+        {
+          text: "GitHub Repo",
+          url: "https://github.com/vabucci/todo",
+          variant: "primary"
+        }
+      ]
+    }
+  ];
+
   return (
     <section id="projects">
       <h1 className="title page-top">My Projects</h1>
-      <div className="section-container">
-        <div className="experience-details-container">
-          <div className="about-containers">
-            <div className="project-container glassmorphism-card color-container">
-              <div className="article-container">
-                <img
-                  src={project1Img}
-                  alt="Project 1 Image"
-                  className="project-img"
-                />
-              </div>
-              <div className="proj-cont">
-                <h2 className="experience-sub-title project-title">
-                  Personal Website
-                </h2>
-                <div className="btn-container">
-                  <button
-                    className="btn btn-color-2 project-btn"
-                    onClick={() => window.open('https://github.com/vabucci/portfolio-website')}
-                  >
-                    GitHub Repo
-                  </button>
-                </div>
-              </div>
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <div key={index} className="project-card glassmorphism-card">
+            <div className="project-image-container">
+              <img
+                src={project.image}
+                alt={`${project.title} Image`}
+                className="project-img"
+              />
             </div>
-            <div className="project-container glassmorphism-card color-container">
-              <div className="article-container">
-                <img
-                  src={project2Img}
-                  alt="Project 2 Image"
-                  className="project-img"
-                />
-              </div>
-              <div className="proj-cont">
-                <h2 className="experience-sub-title project-title">
-                  React Todo App
-                </h2>
-                <div className="btn-container">
+            <div className="project-content">
+              <h2 className="project-title">{project.title}</h2>
+              <div className="project-buttons">
+                {project.buttons.map((button, buttonIndex) => (
                   <button
-                    className="btn btn-color-2 project-btn"
-                    onClick={() => window.open('https://todo-list-498fe.web.app')}
+                    key={buttonIndex}
+                    className={`btn ${button.variant === 'primary' ? 'btn-color-1' : 'btn-color-2'} project-btn`}
+                    onClick={() => window.open(button.url)}
                   >
-                    Website
+                    {button.text}
                   </button>
-                  <button
-                    className="btn btn-color-1"
-                    onClick={() => window.open('https://github.com/vabucci/todo')}
-                  >
-                    GitHub Repo
-                  </button>
-                </div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );
