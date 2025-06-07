@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 const sections = [
   { id: 'home', label: 'Home', href: '#' },
   { id: 'about', label: 'About', href: '#about' },
-  { id: 'experience', label: 'Experience', href: '#experience' },
+  // { id: 'experience', label: 'Experience', href: '#experience' },
   { id: 'projects', label: 'Projects', href: '#projects' },
 ];
 

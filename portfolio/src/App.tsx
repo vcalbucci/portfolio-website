@@ -1,7 +1,7 @@
 import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import About from './components/About';
-import Experience from './components/Experience';
+// import Experience from './components/Experience';
 import Projects from './components/Projects';
 import './App.css';
 import './index.css';
@@ -12,7 +12,7 @@ function App() {
       <NavBar />
       <Profile />
       <About />
-      <Experience />
+      {/* <Experience /> */}
       <Projects />
     </div>
   );
