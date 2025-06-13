@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import project1Img from '../assets/Project1.png';
 import project1DarkImg from '../assets/Project1Dark.png';
 import project2Img from '../assets/Project2.png';
+import project3Img from '../assets/Project3.png';
 
 interface ProjectData {
   title: string;
@@ -59,7 +60,18 @@ const Projects: React.FC = () => {
         {
           text: "GitHub Repo",
           url: "https://github.com/vabucci/portfolio-website",
-          variant: "secondary"
+          variant: "primary"
+        }
+      ]
+    },
+    {
+      title: "HTTP Server from Scratch",
+      image: project3Img,
+      buttons: [
+        {
+          text: "GitHub Repo",
+          url: "https://github.com/vcalbucci/java-http-server",
+          variant: "primary"
         }
       ]
     },
@@ -91,7 +103,7 @@ const Projects: React.FC = () => {
               <img
                 src={project.image}
                 alt={`${project.title} Image`}
-                className="project-img"
+                className={`project-img ${project.title === "HTTP Server from Scratch" ? "project3-img" : ""}`}
               />
             </div>
             <div className="project-content">

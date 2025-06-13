@@ -57,21 +57,19 @@ const Profile: React.FC = () => {
       <section id="profile" className="profile-section">
         <div className="section-text profile-content">
           <p 
-            className="section-text-p1 fade-in-element"
+            className="section-text-p1"
             style={{ 
-              fontSize: '1.2rem',
-              animationDelay: '0.2s'
+              fontSize: '1.2rem'
             }}
           >
             Hello, I'm
           </p>
           <h1 
-            className="title fade-in-element"
+            className="title"
             style={{ 
               fontSize: '3.5rem',
               minHeight: '4rem',
               fontWeight: '700',
-              animationDelay: '0.5s',
               marginBottom: '1rem'
             }}
           >
