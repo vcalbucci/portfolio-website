@@ -8,6 +8,7 @@ import project3DarkImg from '../assets/Project3Dark.png';
 interface ProjectData {
   title: string;
   image: string;
+  description: string;
   buttons: {
     text: string;
     url: string;
@@ -57,6 +58,7 @@ const Projects: React.FC = () => {
     {
       title: "Personal Website",
       image: isDarkMode ? project1Img : project1DarkImg,
+      description: "Clean and responsive React portfolio showcasing my projects in software engineering, machine learning, and backend systems.",
       buttons: [
         {
           text: "GitHub Repo",
@@ -68,6 +70,7 @@ const Projects: React.FC = () => {
     {
       title: "HTTP Server from Scratch",
       image: isDarkMode ? project3Img : project3DarkImg,
+      description: "A lightweight HTTP/1.1 server written from scratch in Java. Supports keep-alive connections, gzip compression, static file serving, and basic routing.",
       buttons: [
         {
           text: "GitHub Repo",
@@ -79,6 +82,7 @@ const Projects: React.FC = () => {
     {
       title: "React Todo App",
       image: project2Img,
+      description: "A full-stack React application with authentication and database integration, demonstrating API consumption and real-time data management.",
       buttons: [
         {
           text: "Website",
@@ -109,6 +113,7 @@ const Projects: React.FC = () => {
             </div>
             <div className="project-content">
               <h2 className="project-title">{project.title}</h2>
+              <p className="project-description">{project.description}</p>
               <div className="project-buttons">
                 {project.buttons.map((button, buttonIndex) => (
                   <button
