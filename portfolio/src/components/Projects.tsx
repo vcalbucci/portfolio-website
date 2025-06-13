@@ -3,6 +3,7 @@ import project1Img from '../assets/Project1.png';
 import project1DarkImg from '../assets/Project1Dark.png';
 import project2Img from '../assets/Project2.png';
 import project3Img from '../assets/Project3.png';
+import project3DarkImg from '../assets/Project3Dark.png';
 
 interface ProjectData {
   title: string;
@@ -66,7 +67,7 @@ const Projects: React.FC = () => {
     },
     {
       title: "HTTP Server from Scratch",
-      image: project3Img,
+      image: isDarkMode ? project3Img : project3DarkImg,
       buttons: [
         {
           text: "GitHub Repo",
@@ -103,7 +104,7 @@ const Projects: React.FC = () => {
               <img
                 src={project.image}
                 alt={`${project.title} Image`}
-                className={`project-img ${project.title === "HTTP Server from Scratch" ? "project3-img" : ""}`}
+                className="project-img"
               />
             </div>
             <div className="project-content">
