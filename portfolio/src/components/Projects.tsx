@@ -4,6 +4,7 @@ import project1DarkImg from '../assets/Project1Dark.png';
 import project2Img from '../assets/Project2.png';
 import project3Img from '../assets/Project3.png';
 import project3DarkImg from '../assets/Project3Dark.png';
+import worldviewImg from '../assets/worldview.png';
 
 interface ProjectData {
   title: string;
@@ -55,6 +56,18 @@ const Projects: React.FC = () => {
   }, []);
 
   const projects: ProjectData[] = [
+    {
+      title: "Worldview",
+      image: worldviewImg,
+      description: "An innovative AI-powered application developed during the Llama4 Hackathon, leveraging large language models to provide comprehensive worldview analysis and insights.",
+      buttons: [
+        {
+          text: "GitHub Repo",
+          url: "https://github.com/vcalbucci/llama4-hackathon",
+          variant: "primary"
+        }
+      ]
+    },
     {
       title: "Personal Website",
       image: isDarkMode ? project1Img : project1DarkImg,
@@ -108,7 +121,7 @@ const Projects: React.FC = () => {
               <img
                 src={project.image}
                 alt={`${project.title} Image`}
-                className="project-img"
+                className={`project-img ${project.title === 'Worldview' ? 'project-img-white-bg' : ''}`}
               />
             </div>
             <div className="project-content">
