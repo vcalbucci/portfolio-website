@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
             className="icon contact-icon"
           />
           <p>
-            <a href="https://www.linkedin.com/in/victor-calbucci-a91458210/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/vcalbucci/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </p>
         </div>
       </div>
