@@ -88,28 +88,22 @@ const NavBar: React.FC = () => {
     }
   };
 
-  const NavLinks = () => (
-    <>
-      {sections.map((section) => (
-        <li key={section.id}>
-          <a
-            href={section.href}
-            className={scrolled && (clickedSection || activeSection) === section.id ? 'active' : ''}
-            onClick={e => handleNavClick(e, section.id)}
-          >
-            {section.label}
-          </a>
-        </li>
-      ))}
-    </>
-  );
-
   return (
     <div className="navbar-container">
       <nav id="desktop-nav" className={`rounded-navbar${scrolled ? '' : ' transparent-navbar'}`}>
         <div style={{ position: 'relative' }}>
           <ul className="nav-links" ref={navRef}>
-            <NavLinks />
+            {sections.map((section) => (
+              <li key={section.id}>
+                <a
+                  href={section.href}
+                  className={scrolled && (clickedSection || activeSection) === section.id ? 'active' : ''}
+                  onClick={e => handleNavClick(e, section.id)}
+                >
+                  {section.label}
+                </a>
+              </li>
+            ))}
           </ul>
           {scrolled && (
             <div 

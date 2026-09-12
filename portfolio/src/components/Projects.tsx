@@ -5,6 +5,7 @@ import project2Img from '../assets/Project2.png';
 import project3Img from '../assets/Project3.png';
 import project3DarkImg from '../assets/Project3Dark.png';
 import worldviewImg from '../assets/worldview.png';
+import koinmmaImg from '../assets/koinmma.png';
 
 interface ProjectData {
   title: string;
@@ -57,6 +58,23 @@ const Projects: React.FC = () => {
 
   const projects: ProjectData[] = [
     {
+      title: "KOIN MMA",
+      image: koinmmaImg,
+      description: "A play-money MMA wagering app live on the iOS App Store and web. Users stake play money on UFC fights and compete in ranked leagues, with odds priced from Kalshi prediction markets.",
+      buttons: [
+        {
+          text: "Website",
+          url: "https://koinmma.com",
+          variant: "secondary"
+        },
+        {
+          text: "App Store",
+          url: "https://apps.apple.com/app/id6799247981",
+          variant: "primary"
+        }
+      ]
+    },
+    {
       title: "Worldview",
       image: worldviewImg,
       description: "An innovative AI-powered application developed during the Llama4 Hackathon, leveraging large language models to provide comprehensive worldview analysis and insights.",
@@ -70,19 +88,19 @@ const Projects: React.FC = () => {
     },
     {
       title: "Personal Website",
-      image: isDarkMode ? project1Img : project1DarkImg,
+      image: isDarkMode ? project1DarkImg : project1Img,
       description: "Clean and responsive React portfolio showcasing my projects in software engineering, machine learning, and backend systems.",
       buttons: [
         {
           text: "GitHub Repo",
-          url: "https://github.com/vabucci/portfolio-website",
+          url: "https://github.com/vcalbucci/portfolio-website",
           variant: "primary"
         }
       ]
     },
     {
       title: "HTTP Server from Scratch",
-      image: isDarkMode ? project3Img : project3DarkImg,
+      image: isDarkMode ? project3DarkImg : project3Img,
       description: "A lightweight HTTP/1.1 server written from scratch in Java. Supports keep-alive connections, gzip compression, static file serving, and basic routing.",
       buttons: [
         {
@@ -104,7 +122,7 @@ const Projects: React.FC = () => {
         },
         {
           text: "GitHub Repo",
-          url: "https://github.com/vabucci/todo",
+          url: "https://github.com/vcalbucci/todo",
           variant: "primary"
         }
       ]
@@ -132,7 +150,7 @@ const Projects: React.FC = () => {
                   <button
                     key={buttonIndex}
                     className={`btn ${button.variant === 'primary' ? 'btn-color-1' : 'btn-color-2'} project-btn`}
-                    onClick={() => window.open(button.url)}
+                    onClick={() => window.open(button.url, '_blank', 'noopener,noreferrer')}
                   >
                     {button.text}
                   </button>

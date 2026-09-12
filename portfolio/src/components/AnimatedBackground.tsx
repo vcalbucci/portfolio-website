@@ -79,7 +79,7 @@ const AnimatedBackground: React.FC = () => {
       let targetFPS = 60;
       
       const cores = navigator.hardwareConcurrency || 4;
-      const memory = (navigator as any).deviceMemory || 4;
+      const memory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 4;
       
       if (cores <= 2 || memory <= 2) {
         targetFPS = 30;
@@ -140,8 +140,8 @@ const AnimatedBackground: React.FC = () => {
         const maxInfluence = 200;
         for (let pointIndex = 0; pointIndex < linePoints.length; pointIndex++) {
           const x = pointIndex * 8;
-          let y = linePoints[pointIndex];
-          
+          const y = linePoints[pointIndex];
+
           const mouseDistance = Math.sqrt(
             Math.pow(x - mousePos.current.x, 2) + Math.pow(y - mousePos.current.y, 2)
           );

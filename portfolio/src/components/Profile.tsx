@@ -100,7 +100,7 @@ const Profile: React.FC = () => {
           >
             <button
               className="btn btn-color-2"
-              onClick={() => window.open(resumePdf)}
+              onClick={() => window.open(resumePdf, '_blank', 'noopener,noreferrer')}
               style={{ 
                 fontSize: '1.1rem',
                 padding: '1rem 2.5rem',
@@ -131,7 +131,7 @@ const Profile: React.FC = () => {
                 src={social.src}
                 alt={social.alt}
                 className="icon social-icon"
-                onClick={() => window.open(social.url)}
+                onClick={() => window.open(social.url, '_blank', 'noopener,noreferrer')}
                 onMouseEnter={(e) => handleMouseEnter(e, '1.1')}
                 onMouseLeave={handleMouseLeave}
               />

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
+  color-scheme: light;
   --primary: #0d1a3b;
   --secondary: #0d1a3b;
   --accent: #6b7280;
@@ -26,6 +27,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light-mode) {
+    color-scheme: dark;
     --primary: #e2e8f0;
     --secondary: #ffff99;
     --accent: #ffff99;
@@ -51,6 +53,7 @@
 }
 
 .dark-mode {
+  color-scheme: dark;
   --primary: #e2e8f0;
   --secondary: #ffff99;
   --accent: #ffff99;
@@ -75,6 +78,7 @@
 }
 
 .light-mode {
+  color-scheme: light;
   --primary: #0d1a3b;
   --secondary: #0d1a3b;
   --accent: #6b7280;
@@ -105,9 +109,14 @@
 }
 
 html {
+  background-color: var(--bg);
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+button {
+  font-family: inherit;
 }
 
 html::-webkit-scrollbar {
