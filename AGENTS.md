@@ -21,7 +21,7 @@ There is no test suite. `npm run build` runs `tsc -b` first with `strict`, `noUn
 
 ## Deployment
 
-Every push to `main` runs `.github/workflows/deploy.yml`: Node 18, `npm ci` (keep `portfolio/package-lock.json` in sync with `package.json`), `npm run build`, then `portfolio/dist` is published to GitHub Pages at https://vcalbucci.com. `vite.config.ts` uses `base: '/'` because of the custom domain — do not change it to a repo subpath. `dist/` is gitignored; never edit it.
+Every push to `main` runs `.github/workflows/deploy.yml`: Node 24 (from `portfolio/.nvmrc`), `npm ci` (keep `portfolio/package-lock.json` in sync with `package.json`), `npm run build`, then `portfolio/dist` is published to GitHub Pages at https://vcalbucci.com. `vite.config.ts` uses `base: '/'` because of the custom domain — do not change it to a repo subpath. `dist/` is gitignored; never edit it.
 
 ## Architecture
 
